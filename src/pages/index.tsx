@@ -38,7 +38,8 @@ const IndexPage = () => {
     <main style={page}>
       <div style={btnPage}>
         <button style={btn}> 
-          <Link to="/prova" style={btnLink}>MENU</Link>
+          {/* Link permette di fare il route verso un altra pagina in automatico */}
+          <Link to="/word" style={btnLink}>WORD</Link>
         </button>
       </div>
      
@@ -47,3 +48,5 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+// TODO
+// Sistemare la view che viene più grossa dello schermo per i padding credo di body ...
