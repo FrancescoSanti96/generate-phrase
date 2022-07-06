@@ -29,16 +29,18 @@ useEffect(() => {
             onChange={(e) => {
                 // add to list
                 if (e.target.checked) {
+                  // metodo per aggiugnere valori alla lista come arry senza sovrascrivere i precedenti
                   setWords([
                     ...words,
-                    {
-                      id: item.title,
-                    }
+                    
+                      item.title,
+                    
                   ]);
                 } else {
                   // remove from list
+                  // filtra  e restituisce i valori diversi da quello a cui si è fatto unchek
                   setWords(
-                    words.filter((word) => word.id !== item.id),
+                    words.filter(word => word !== item.title),
                   );
                 }
               }}
@@ -52,14 +54,14 @@ useEffect(() => {
       {/* TODO */}
       {/* solo se è stata selezionato almeno 1 valore aggiugi il bottone per andate avanti */}
       {/* state permette di passare come props dei valori e poi richiamarli nella pagina con il location */}
-      <button
+      {/* <button
       onClick={()=> {
         // console.log(JSON.stringify(words))
         setWords(JSON.stringify(words))
         // localStorage.setItem("val", JSON.stringify(words));
       }}
-      >prova</button>
-      <Link to="/phrase" state={{ test: words }}> 
+      >prova</button> */}
+      <Link to="/phrase" state={{ test: JSON.stringify(words) }}> 
         Phrase
       </Link> 
     </>
