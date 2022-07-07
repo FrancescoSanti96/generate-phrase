@@ -35,6 +35,11 @@ export default function Component ({location}) {
   // const phrase = location.state.words.replace(/,/g,' ').replace(/"/g,'').replace('[','').replace(']','')
 
   // pulisco la frase ricevuta in formato json
+  try {
+    const phrase = location.state.words.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','')
+  } catch (error) {
+    
+  }
   // const phrase = location.state.words.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','')
   // console.log(typeof(phrase))
 
