@@ -2,10 +2,11 @@ import { Link } from "gatsby";
 import * as React from "react";
 import { useState, useEffect } from "react";
 
+
 const WordPage = ({ serverData }) => {
   // per prelevare i valori contenuti nella checkbox selezionate
   const [words, setWords] = useState([]);
-  let prova = "ciao"
+
   //prelevare la props della chiamata api
   const { title } = serverData;
 useEffect(() => {
@@ -24,7 +25,8 @@ useEffect(() => {
         {/* creo una map per ogni valore prelevato con l'api e creou una checkbox */}
         {title.map((item, i) => (
           <div key={i}>
-            <input type="checkbox" id={item.title} name={item.title} 
+            {console.log(item)}
+            <input type="checkbox" id={item} name={item} 
             // monitoro quando vine seleziona e deselezionata per aggiugnere o rimuovere il valore
             onChange={(e) => {
                 // add to list
@@ -33,19 +35,19 @@ useEffect(() => {
                   setWords([
                     ...words,
                     
-                      item.title,
+                      item,
                     
                   ]);
                 } else {
                   // remove from list
                   // filtra  e restituisce i valori diversi da quello a cui si è fatto unchek
                   setWords(
-                    words.filter(word => word !== item.title),
+                    words.filter(word => word !== item),
                   );
                 }
               }}
             />
-            <label htmlFor={item.title}>{item.title}</label>
+            <label htmlFor={item}>{item}</label>
             <br></br>
           </div>
         ))}
@@ -61,7 +63,7 @@ useEffect(() => {
         // localStorage.setItem("val", JSON.stringify(words));
       }}
       >prova</button> */}
-      <Link to="/phrase" state={{ test: JSON.stringify(words) }}> 
+      <Link to="/phrase" state={{ words: JSON.stringify(words) }}> 
         Phrase
       </Link> 
     </>
@@ -69,8 +71,11 @@ useEffect(() => {
 };
 
 export async function getServerData() {
+  // const res = await fetch(
+  //   `https://jsonplaceholder.typicode.com/posts?_limit=5`
+  // );
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=5`
+    `https://random-word-api.herokuapp.com/word?lang=it&number=10`
   );
   const data = await res.json();
 

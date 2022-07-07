@@ -1,0 +1,10 @@
+Task:
+
+creare la frase in phrase
+cercare api per solo risultatoto di parole
+
+
+https://stackoverflow.com/questions/66434403/how-to-get-multiple-checkbox-values-in-react-js
+https://www.rodrigoplp.com/blog/passing-data-between-pages-in-gatsbyjs
+https://bennettfeely.com/clippy/
+https://web.postman.co/workspace/My-Workspace~db344877-9b9d-480e-8e2d-b7e3192ee420/request/create?requestId=d9fa4cb9-6a11-418a-9363-52a55ab696a5
