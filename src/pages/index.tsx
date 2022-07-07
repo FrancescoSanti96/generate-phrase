@@ -3,7 +3,6 @@ import { isAbsolute } from "path"
 import * as React from "react"
 
 
-
 // styles
 const page = {
 height: "100%",
@@ -16,7 +15,7 @@ zIndex: "-1",
 
 const btnPage = {
   display: "flex",
-  height: "95vh",
+  height: "100vh",
   alignItems: "center",
   justifyContent: "center",
 }
@@ -24,27 +23,30 @@ const btnPage = {
 const btn = {
   // color: "white",
   padding: "25px",
-  fontSize: "xxx-large",
-  border: "none",
+  fontSize: "75px",
   backgroundColor: "#32a891",
-  margin: "auto"
+  margin: "auto",
+  border: "solid 8px #298976",
+  "& :hover" : {
+    backgroundColor: "#1d6254"
+  }
+
 }
 
 const btnLink = {
-  color: "white",
+  color: "wheat",
   textDecoration: "none",
 }
 
 const IndexPage = () => {
   return (
-    <main style={page}>
+    <main>
       <div style={btnPage}>
-        <button style={btn}> 
+        <button style={btn} className="btnWords"> 
           {/* Link permette di fare il route verso un altra pagina in automatico */}
-          <Link to="/word" style={btnLink}>WORD</Link>
+          <Link to="/word" style={btnLink}><b>WORDS</b></Link>
         </button>
       </div>
-     
     </main>
   )
 }

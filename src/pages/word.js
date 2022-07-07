@@ -1,7 +1,34 @@
 import { Link } from "gatsby";
 import * as React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import { useState } from "react";
 
+const fieldset = {
+  border: "inset 4px"
+}
+
+const legend= {
+  color: "wheat",
+  fontSize: "35px",
+  margin: "auto"
+}
+
+const list = {
+  fontSize: "xx-large",
+  color: "wheat"
+}
+
+const footer = {
+  display: "flex",
+  justifyContent: "space-between"
+}
+
+const footerItem = {
+  color: " #330099",
+  fontSize: "xx-large",
+  // padding: "5px",
+  // background: "blueviolet"
+}
 
 const WordPage = ({ serverData }) => {
   // per prelevare i valori contenuti nella checkbox selezionate
@@ -9,23 +36,23 @@ const WordPage = ({ serverData }) => {
 
   //prelevare la props della chiamata api
   const { title } = serverData;
-useEffect(() => {
-  console.log(Object.values(words))
-}, [words])
+// useEffect(() => {
+//   console.log(Object.values(words))
+// }, [words])
 
   return (
     <>
       {/* rimuovere */}
       {/* <Link to="/">HOME</Link> */}
 
-      <fieldset>
-        <legend>
-          <h1>Seleziona le parole per comporrere la frase:</h1>
+      <fieldset style={fieldset}>
+        <legend style={legend}>
+          <h1 >Seleziona le parole per comporrere la frase:</h1>
         </legend>
         {/* creo una map per ogni valore prelevato con l'api e creou una checkbox */}
         {title.map((item, i) => (
           <div key={i}>
-            {console.log(item)}
+        
             <input type="checkbox" id={item} name={item} 
             // monitoro quando vine seleziona e deselezionata per aggiugnere o rimuovere il valore
             onChange={(e) => {
@@ -47,7 +74,7 @@ useEffect(() => {
                 }
               }}
             />
-            <label htmlFor={item}>{item}</label>
+            <label htmlFor={item} style={list}>{item}</label>
             <br></br>
           </div>
         ))}
@@ -55,17 +82,20 @@ useEffect(() => {
       </fieldset>
       {/* TODO */}
       {/* solo se è stata selezionato almeno 1 valore aggiugi il bottone per andate avanti */}
-      {/* state permette di passare come props dei valori e poi richiamarli nella pagina con il location */}
-      {/* <button
-      onClick={()=> {
-        // console.log(JSON.stringify(words))
-        setWords(JSON.stringify(words))
-        // localStorage.setItem("val", JSON.stringify(words));
-      }}
-      >prova</button> */}
-      <Link to="/phrase" state={{ words: JSON.stringify(words) }}> 
-        Phrase
-      </Link> 
+
+      <div style={footer}>
+        <div>
+          <Link to="/" style={footerItem}> 
+          Indietro
+          </Link> 
+        </div>
+        <div>
+          {/* state permette di passare come props dei valori e poi richiamarli nella pagina con il location */}
+          <Link to="/phrase" state={{ words: JSON.stringify(words) }} style={footerItem}> 
+            Avanti
+          </Link> 
+        </div>
+      </div>
     </>
   );
 };
