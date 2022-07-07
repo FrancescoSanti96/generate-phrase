@@ -35,8 +35,9 @@ export default function Component ({location}) {
   // const phrase = location.state.words.replace(/,/g,' ').replace(/"/g,'').replace('[','').replace(']','')
 
   // pulisco la frase ricevuta in formato json
+  const phrase = ""
   try {
-    const phrase = location.state.words.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','')
+    phrase = location.state.words.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','')
   } catch (error) {
     
   }
@@ -47,7 +48,7 @@ export default function Component ({location}) {
     <div>
      
       <h1 style={styleTitle}>La frase:</h1>
-      {/* <h3 style={stylePhrase}>{phrase}</h3> */}
+      <h3 style={stylePhrase}>{phrase}</h3>
       
       <div style={footer}>
         <div>
