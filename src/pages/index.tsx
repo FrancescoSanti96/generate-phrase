@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import { isAbsolute } from "path"
 import * as React from "react"
 
+
+
 // styles
 const page = {
 height: "100%",
@@ -14,7 +16,7 @@ zIndex: "-1",
 
 const btnPage = {
   display: "flex",
-  height: "100vh",
+  height: "95vh",
   alignItems: "center",
   justifyContent: "center",
 }
