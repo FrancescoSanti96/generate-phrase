@@ -9,8 +9,6 @@ const footer = {
 const footerItem = {
   color: " #330099",
   fontSize: "xx-large",
-  // padding: "5px",
-  // background: "blueviolet"
 }
 
 const styleTitle = {
@@ -33,23 +31,20 @@ export default function Component ({location}) {
   // const phrase = JSON.parse(location.state.words)
   // usa le espressioni regolar per permettere di rimuovere tutti gli elementi il g sta per global ed è quello che li dice di rimuoverli tutti
   // const phrase = location.state.words.replace(/,/g,' ').replace(/"/g,'').replace('[','').replace(']','')
-
-  // pulisco la frase ricevuta in formato json
+  
   let phrase = ""
   try {
+    // pulisco la frase ricevuta in formato json come props attraverso il Link
     phrase = location.state.words.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','')
   } catch (error) {
-    
+    console.log(error) 
   }
-  // const phrase = location.state.words.replaceAll(',',' ').replaceAll('"','').replaceAll('[','').replaceAll(']','')
-  // console.log(typeof(phrase))
 
   return (
     <div>
-     
       <h1 style={styleTitle}>La frase:</h1>
       <h3 style={stylePhrase}>{phrase}</h3>
-      
+      <br/>
       <div style={footer}>
         <div>
           <Link to="/word" style={footerItem}> 
@@ -62,8 +57,6 @@ export default function Component ({location}) {
           </Link> 
         </div>
       </div>
-    </div>
-    
+    </div> 
   )
-
 }
